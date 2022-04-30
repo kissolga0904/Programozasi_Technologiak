@@ -1,5 +1,6 @@
 # Rendszerterv
 ## 1.) A rendszer célja
+GLS raktárrendszert menedzselő program, amely egy ablakos alkalmazás. Benne lehetőség van rendelést leadni, a beszállítókat menedzselni.
 
 ## 2.) Projektterv
 ### Projektszerepkörök, felelőssége
