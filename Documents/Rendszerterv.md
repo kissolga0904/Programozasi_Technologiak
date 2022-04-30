@@ -113,6 +113,9 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 ### Rendszerhasználati esetek és lefutásaik
  
 ## 6.) Fizikai környezet
+- Java ablakos alkalmazás
+- Fejlesztői eszközök:
+   - IntelliJ IDEA
  
 ## 7.) Architekturális terv
 ### Backend:
