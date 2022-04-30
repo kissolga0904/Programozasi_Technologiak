@@ -8,10 +8,12 @@ GLS raktárrendszert menedzselő program, amely egy ablakos alkalmazás. Benne l
 ### Mérföldkövek
 ## 3.) Üzleti folyamatok modellje
 ### Üzleti szereplők: 	
-
+- felhasználó
 
 ### Üzleti munkatárs: 	
-
+- karbantartó
+- 
+A mai világban nagyon sokan vásárolnak az interneten, raktárrendszer kezelők nélkül nagyon nehéz lenne az egyes cégek dolga.
 ## 4.) Követelmények
 ### Funkcionális követelmények
 
