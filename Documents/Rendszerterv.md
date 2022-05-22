@@ -132,8 +132,11 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 #### Alfa teszt:
 
 #### Beta teszt:
-
-## 9.) Karbantartási terv
+## 9.) Architektúrális terv
+ - Java
+ - Swing
+ - MySQL
+## 10.) Karbantartási terv
 
 Az alkalmazás folyamatos üzemeltetése és karbantartása, mely magában foglalja a programhibák elhárítását, a belső igények változása miatti módosításokat, valamint a környezeti feltételek változása miatt megfogalmazott program-, illetve állomány módosítási igényeket.
 
