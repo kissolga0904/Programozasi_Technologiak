@@ -7,24 +7,24 @@ public class Add {
     ImageIcon image = new ImageIcon("logo.png");
 
     JFrame frame = new JFrame();
-    JLabel label = new JLabel("Adjon hozzá új terméket!");
+    JLabel label = new JLabel("Add a new product!");
 
     JTextField nev = new JTextField();
-    JLabel Nev = new JLabel("Név");
+    JLabel Nev = new JLabel("Name");
 
     JTextField szin = new JTextField();
-    JLabel Szin = new JLabel("Szín");
+    JLabel Szin = new JLabel("Color");
 
     JTextField suly = new JTextField();
-    JLabel Suly = new JLabel("Súly");
+    JLabel Suly = new JLabel("Weight");
 
     JTextField tipus = new JTextField();
-    JLabel Tipus = new JLabel("Típus");
+    JLabel Tipus = new JLabel("Type");
 
     JTextField gyarto = new JTextField();
-    JLabel Gyarto = new JLabel("Gyártó");
+    JLabel Gyarto = new JLabel("Producer");
 
-    JButton mentes = new JButton("Mentés");
+    JButton mentes = new JButton("Save");
     Add(){
         label.setBounds(30,20,730,400);
         label.setFont(new Font("Serif", Font.PLAIN, 30));
@@ -32,10 +32,10 @@ public class Add {
         label.setVerticalAlignment(JLabel.TOP);
         label.setForeground(Color.blue);
         frame.add(label);
-        frame.setSize(800,600);
+        frame.setSize(800,200);
         frame.setIconImage(image.getImage());
         frame.getContentPane().setBackground(new Color(162,192,218));
-        frame.setTitle("Hozzáadás");
+        frame.setTitle("Add new product");
         frame.setResizable(false);
         frame.setLayout(new FlowLayout(FlowLayout.RIGHT,20,10));
 

@@ -5,7 +5,7 @@ public class Delete {
     ImageIcon image = new ImageIcon("logo.png");
 
     JFrame frame = new JFrame();
-    JLabel label = new JLabel("Sikeres törlés!");
+    JLabel label = new JLabel("Deleted successfully");
 
 
 
@@ -14,7 +14,7 @@ public class Delete {
         frame.setSize(500,200);
         frame.setIconImage(image.getImage());
         frame.getContentPane().setBackground(new Color(162,192,218));
-        frame.setTitle("Törlés");
+        frame.setTitle("Delete");
         frame.setResizable(false);
         label.setBounds(30,20,730,400);
         label.setFont(new Font("Serif", Font.PLAIN, 30));

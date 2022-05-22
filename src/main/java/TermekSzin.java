@@ -1,3 +1,3 @@
 public enum TermekSzin {
-    PIROS, KEK, ZOLD, NARANCS, FEHER
+    RED, BLUE, GREEN, ORANGE, WHITE
 }

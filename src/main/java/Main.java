@@ -2,6 +2,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,16 +15,16 @@ public class Main {
     public static Logger LOGGER = LogManager.getLogger("progTech");
     static boolean tablazatLathato = false;
     public static void main(String[] args){
-        LOGGER.info("barmi");
+        LOGGER.info("start");
         ImageIcon image = new ImageIcon("logo.png");
 
         JFrame frame = new JFrame();
-        frame.setTitle("Raktárrendszer kezelő");
+        frame.setTitle("System manager");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setSize(1000,800);
         JLabel label = new JLabel();
-        label.setText("Üdvözöljük a GLS raktárrendszer kezelőjében!");
+        label.setText("Welcome to GLS warehouse system manager");
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.TOP);
         label.setForeground(Color.blue);
@@ -35,30 +37,45 @@ public class Main {
         table.setVisible(false);
         JPanel texts = new JPanel();
         texts.setVisible(false);
-        JButton megtekintes = new JButton("Megtekintés");
+        JButton megtekintes = new JButton("View all products");
 
         JTextField nev = new JTextField();
-        JLabel Nev = new JLabel("Név");
+        JLabel Nev = new JLabel("Name");
 
         JTextField szin = new JTextField();
-        JLabel Szin = new JLabel("Szín");
+        JLabel Szin = new JLabel("Color");
 
         JTextField suly = new JTextField();
-        JLabel Suly = new JLabel("Súly");
+        JLabel Suly = new JLabel("Weight");
 
         JTextField tipus = new JTextField();
-        JLabel Tipus = new JLabel("Típus");
+        JLabel Tipus = new JLabel("Type");
 
         JTextField gyarto = new JTextField();
-        JLabel Gyarto = new JLabel("Gyártó");
+        JLabel Gyarto = new JLabel("Producer");
 
-        JButton mentes = new JButton("Mentés");
+        JButton mentes = new JButton("Save");
+
+        /*
+        String[] oszlopok = { "Név", "Szín", "Súly", "Típus", "Gyártó" };
+        DefaultTableModel tableModel = new DefaultTableModel();
         String[][] data = {
-                { "Kundan Kumar Jha", "4031", "CSE", "geagsgt", "hbsbx" },
+                { "geci", "4031", "CSE", "geagsgt", "hbsbx" },
                 { "Anand Jha", "6014", "IT", "jgjjFJJFJ", "KKKFKKF" }
         };
-        String[] oszlopok = { "Név", "Szín", "Súly", "Típus", "Gyártó" };
-        JTable tablazat = new JTable(data,oszlopok);
+         */
+        JTable tablazat = new JTable(new DefaultTableModel());
+        DefaultTableModel tableModel = (DefaultTableModel) tablazat.getModel();
+        tableModel.addColumn("Name");
+        tableModel.addColumn("Color");
+        tableModel.addColumn("Weight");
+        tableModel.addColumn("Type");
+        tableModel.addColumn("Producer");
+
+
+        Product product = new Product.Builder("Coffee maker",TermekSzin.RED,"automata", Gyartok.DELONGHI).suly(5).build();
+        tableModel.addRow(new Object[]{product.getNev(),product.getSzin().toString(),product.getSuly(),product.getTipus(),product.getGyarto()});
+        System.out.println(tablazat.getRowCount());
 
         megtekintes.addActionListener(new ActionListener() {
             @Override
@@ -73,8 +90,6 @@ public class Main {
                     table.add(scrollPane);
                     frame.getContentPane().add(table);
                     table.setVisible(true);
-
-                    System.out.println("Gomb lenyomva");
 
                     nev.setPreferredSize(new Dimension(100,25));
                     Nev.setBounds(60,40,400,400);
@@ -132,7 +147,7 @@ public class Main {
         });
 
         frame.add(megtekintes);
-        JButton hozzaadas = new JButton("Hozzáadás");
+        JButton hozzaadas = new JButton("Add");
         hozzaadas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -143,10 +158,10 @@ public class Main {
         });
         frame.add(hozzaadas);
 
-        JButton modositas = new JButton("Módosítás");
+        JButton modositas = new JButton("Modify");
         frame.add(modositas);
 
-        JButton torles = new JButton("Törlés");
+        JButton torles = new JButton("Delete");
         torles.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -156,7 +171,7 @@ public class Main {
             }
         });
         frame.add(torles);
-        JButton kovetkezo = new JButton("Következő oldal");
+        JButton kovetkezo = new JButton("Next page");
         frame.add(kovetkezo);
 
         frame.setIconImage(image.getImage());
