@@ -10,10 +10,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class Main {
     public static Logger LOGGER = LogManager.getLogger("progTech");
-    static boolean tablazatLathato = false;
+    //static boolean tablazatLathato = false;
     public static void main(String[] args){
         LOGGER.info("start");
         ImageIcon image = new ImageIcon("logo.png");
@@ -39,6 +43,9 @@ public class Main {
         texts.setVisible(false);
         JButton megtekintes = new JButton("View all products");
 
+        JTextField id = new JTextField();
+        JLabel Id = new JLabel("Id");
+
         JTextField nev = new JTextField();
         JLabel Nev = new JLabel("Name");
 
@@ -52,18 +59,11 @@ public class Main {
         JLabel Tipus = new JLabel("Type");
 
         JTextField gyarto = new JTextField();
-        JLabel Gyarto = new JLabel("Producer");
+        JLabel Gyartoo = new JLabel("Producer");
 
         JButton mentes = new JButton("Save");
 
-        /*
-        String[] oszlopok = { "Név", "Szín", "Súly", "Típus", "Gyártó" };
-        DefaultTableModel tableModel = new DefaultTableModel();
-        String[][] data = {
-                { "geci", "4031", "CSE", "geagsgt", "hbsbx" },
-                { "Anand Jha", "6014", "IT", "jgjjFJJFJ", "KKKFKKF" }
-        };
-         */
+
         JTable tablazat = new JTable(new DefaultTableModel());
         DefaultTableModel tableModel = (DefaultTableModel) tablazat.getModel();
         tableModel.addColumn("Name");
@@ -71,20 +71,23 @@ public class Main {
         tableModel.addColumn("Weight");
         tableModel.addColumn("Type");
         tableModel.addColumn("Producer");
+        tableModel.addColumn("ID");
 
+        ProductDao PDao=new ProductDao();
 
-        Product product = new Product.Builder("Coffee maker",TermekSzin.RED,"automata", Gyartok.DELONGHI).suly(5).build();
-        tableModel.addRow(new Object[]{product.getNev(),product.getSzin().toString(),product.getSuly(),product.getTipus(),product.getGyarto()});
-        System.out.println(tablazat.getRowCount());
 
         megtekintes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
                 if(e.getSource() == megtekintes){
-                    if(tablazatLathato){
-                        return;
+
+                    int rowCount = tableModel.getRowCount();
+                    for (int i = rowCount - 1; i >= 0; i--) {
+                        tableModel.removeRow(i);
                     }
-                    tablazatLathato = true;
+
                     JScrollPane scrollPane = new JScrollPane(tablazat);
                     tablazat.setBounds(30,40,200,300);
                     table.add(scrollPane);
@@ -116,13 +119,28 @@ public class Main {
                     texts.add(tipus);
 
                     gyarto.setPreferredSize(new Dimension(100,25));
-                    Gyarto.setBounds(60,40,400,400);
-                    Gyarto.setFont(new Font("Serif", Font.PLAIN,16));
-                    texts.add(Gyarto);
+                    Gyartoo.setBounds(60,40,400,400);
+                    Gyartoo.setFont(new Font("Serif", Font.PLAIN,16));
+                    texts.add(Gyartoo);
                     texts.add(gyarto);
+
+                    id.setPreferredSize(new Dimension(100,25));
+                    Id.setBounds(60,40,400,400);
+                    Id.setFont(new Font("Serif", Font.PLAIN,16));
+                    texts.add(Id);
+                    texts.add(id);
 
                     frame.getContentPane().add(texts);
                     texts.setVisible(true);
+
+
+
+                    List<Product> PList=PDao.getAll();
+                    for(Product product:PList){
+                        tableModel.addRow(new Object[]{product.getNev(),product.getSzin().toString(),product.getSuly(),product.getTipus(),product.getGyarto(),product.getId()});
+                    }
+
+
                 }
             }
         });
@@ -142,6 +160,7 @@ public class Main {
                     suly.setText(data.get(2).toString());
                     tipus.setText(data.get(3).toString());
                     gyarto.setText(data.get(4).toString());
+                    id.setText(data.get(5).toString());
                 }
             }
         });
@@ -159,6 +178,15 @@ public class Main {
         frame.add(hozzaadas);
 
         JButton modositas = new JButton("Modify");
+        modositas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == modositas){
+                    Product p=new Product.Builder(nev.getText(),TermekSzin.valueOf( szin.getText()),tipus.getText(), Gyartok.valueOf( gyarto.getText()), parseInt(id.getText())).suly(parseInt(suly.getText())).build();
+                    PDao.update(p);
+                }
+            }
+        });
         frame.add(modositas);
 
         JButton torles = new JButton("Delete");
@@ -166,6 +194,7 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == torles){
+                    PDao.delete(parseInt(id.getText()));
                     Delete deletewindow = new Delete();
                 }
             }

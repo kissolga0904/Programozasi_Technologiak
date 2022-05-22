@@ -2,8 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import static java.lang.Integer.parseInt;
 
 public class Add {
+    private Db db = new Db("termek");
+    ProductDao PDao=new ProductDao();
     ImageIcon image = new ImageIcon("logo.png");
 
     JFrame frame = new JFrame();
@@ -73,6 +80,18 @@ public class Add {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(e.getSource() == mentes){
+                    try {
+                        Connection connection = db.Connect();
+                        PreparedStatement statement=connection.prepareStatement( "INSERT INTO termek (nev, szin, tipus, gyarto, suly) VALUES(?,?,?,?,?)");
+                        statement.setString(1,nev.getText());
+                        statement.setString(2,szin.getText());
+                        statement.setString(3,tipus.getText());
+                        statement.setString(4,gyarto.getText());
+                        statement.setString(5,suly.getText());
+                        statement.execute();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                     System.out.println("elmenti");
                 }
             }

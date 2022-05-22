@@ -5,6 +5,7 @@ public class Product {
         private int Suly;
         private String Tipus;
         private Gyartok Gyarto;
+        private int Id;
 
         public String getNev() {
             return Nev;
@@ -26,11 +27,14 @@ public class Product {
             return Gyarto;
         }
 
-        public Builder(String nev, TermekSzin szin, String tipus, Gyartok gyarto){
+        public int getId() { return Id; }
+
+        public Builder(String nev, TermekSzin szin, String tipus, Gyartok gyarto, int id){
             this.Nev = nev;
             this.Szin = szin;
             this.Tipus = tipus;
             this.Gyarto = gyarto;
+            this.Id = id;
         }
 
         public Builder suly(int suly){
@@ -50,6 +54,7 @@ public class Product {
         this.Suly = builder.getSuly();
         this.Tipus = builder.getTipus();
         this.Gyarto = builder.getGyarto();
+        this.Id = builder.getId();
     }
 
     private String Nev;
@@ -57,6 +62,8 @@ public class Product {
     private int Suly;
     private String Tipus;
     private Gyartok Gyarto;
+
+    private int Id;
 
     public String getNev() {
         return Nev;
@@ -77,4 +84,6 @@ public class Product {
     public Gyartok getGyarto() {
         return Gyarto;
     }
+
+    public int getId() { return Id; }
 }
