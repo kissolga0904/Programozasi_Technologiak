@@ -2,8 +2,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +13,7 @@ public class Main {
     public static Logger LOGGER = LogManager.getLogger("progTech");
     static boolean tablazatLathato = false;
     public static void main(String[] args){
-        LOGGER.info("start");
+        LOGGER.info("barmi");
         ImageIcon image = new ImageIcon("logo.png");
 
         JFrame frame = new JFrame();
@@ -55,25 +53,12 @@ public class Main {
         JLabel Gyarto = new JLabel("Gyártó");
 
         JButton mentes = new JButton("Mentés");
-
-        //String[] oszlopok = { "Név", "Szín", "Súly", "Típus", "Gyártó" };
-        //DefaultTableModel tableModel = new DefaultTableModel();
         String[][] data = {
-                { "geci", "4031", "CSE", "geagsgt", "hbsbx" },
+                { "Kundan Kumar Jha", "4031", "CSE", "geagsgt", "hbsbx" },
                 { "Anand Jha", "6014", "IT", "jgjjFJJFJ", "KKKFKKF" }
         };
-        JTable tablazat = new JTable(new DefaultTableModel());
-        DefaultTableModel tableModel = (DefaultTableModel) tablazat.getModel();
-        tableModel.addColumn("Név");
-        tableModel.addColumn("Szin");
-        tableModel.addColumn("Súly");
-        tableModel.addColumn("Típus");
-        tableModel.addColumn("Gyártó");
-
-
-        Product product = new Product.Builder("kávéfőző",TermekSzin.PIROS,"automata", Gyartok.DELONGHI).suly(5).build();
-        tableModel.addRow(new Object[]{product.getNev(),product.getSzin().toString(),product.getSuly(),product.getTipus(),product.getGyarto()});
-        System.out.println(tablazat.getRowCount());
+        String[] oszlopok = { "Név", "Szín", "Súly", "Típus", "Gyártó" };
+        JTable tablazat = new JTable(data,oszlopok);
 
         megtekintes.addActionListener(new ActionListener() {
             @Override
@@ -88,6 +73,8 @@ public class Main {
                     table.add(scrollPane);
                     frame.getContentPane().add(table);
                     table.setVisible(true);
+
+                    System.out.println("Gomb lenyomva");
 
                     nev.setPreferredSize(new Dimension(100,25));
                     Nev.setBounds(60,40,400,400);

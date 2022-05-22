@@ -76,10 +76,10 @@ Temporary Items
 .apdisk
 
 # Windows thumbnail cache files
-Thumbs.db
-Thumbs.db:encryptable
-ehthumbs.db
-ehthumbs_vista.db
+Thumbs.Db
+Thumbs.Db:encryptable
+ehthumbs.Db
+ehthumbs_vista.Db
 
 # Dump file
 *.stackdump
