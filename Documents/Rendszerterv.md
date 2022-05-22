@@ -119,6 +119,8 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 - Java ablakos alkalmazás
 - Fejlesztői eszközök:
    - IntelliJ IDEA
+   - MySQL Workbanch
+   - XAMPP
  
 ## 6.) Adatbázis terv
 
