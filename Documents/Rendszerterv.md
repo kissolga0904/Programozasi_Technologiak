@@ -114,29 +114,18 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 
 (4) Annak megállapítása során, hogy a hozzájárulás önkéntes-e, a lehető legnagyobb mértékben figyelembe kell venni azt a tényt, egyebek mellett, hogy a szerződés teljesítésének - beleértve a szolgáltatások nyújtását is - feltételéül szabták-e az olyan személyes adatok kezeléséhez való hozzájárulást, amelyek nem szükségesek a szerződés teljesítéséhez.
 
-## 5.) Funkcionális terv
-### Rendszerszereplők
-
-### Rendszerhasználati esetek és lefutásaik
  
-## 6.) Fizikai környezet
+## 5.) Fizikai környezet
 - Java ablakos alkalmazás
 - Fejlesztői eszközök:
    - IntelliJ IDEA
  
-## 7.) Architekturális terv
-### Backend:
+## 6.) Adatbázis terv
 
-### Web kliens:
-
-## 8.) Adatbázis terv
-
-
-## 9.) Implementációs terv
+## 7.) Implementációs terv
 ### Alkalmazott technológiák
 
-## 10.) Tesztterv
-
+## 8.) Tesztterv
 
 #### Unit teszt:
 
@@ -144,9 +133,7 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 
 #### Beta teszt:
 
-## 11.) Telepítési terv
-
-## 12.) Karbantartási terv
+## 9.) Karbantartási terv
 
 Az alkalmazás folyamatos üzemeltetése és karbantartása, mely magában foglalja a programhibák elhárítását, a belső igények változása miatti módosításokat, valamint a környezeti feltételek változása miatt megfogalmazott program-, illetve állomány módosítási igényeket.
 
