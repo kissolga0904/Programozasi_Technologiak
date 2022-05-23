@@ -125,8 +125,7 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 ## 6.) Adatbázis terv
 
 ## 7.) Implementációs terv
-### Alkalmazott technológiák
-
+Az alkalmazás Java nyelven készül. A különböző ablakok megjelenítését Swing-segítségévle fogjuk megvalósítani. Két tervezési minták közül az egyik a Builder tervezési minta ami segítségével új terméket tudunk hozzáadni a raktárhoz. A másik pedig a Dao tervezési minta amivel implementáljuk az adatbázis műveleteket.
 ## 8.) Tesztterv
 
 #### Unit teszt:
