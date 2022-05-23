@@ -123,7 +123,13 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
    - XAMPP
  
 ## 6.) Adatbázis terv
-
+### Termék:
+- id int not null Primary Key
+- nev varchar(100) not null
+- szin varchar(100) not null
+- suly int(50) not null
+- tipus varchar(100) not null
+- gyarto varchar(100) not null
 ## 7.) Implementációs terv
 Az alkalmazás Java nyelven készül. A különböző ablakok megjelenítését Swing-segítségévle fogjuk megvalósítani. Két tervezési minták közül az egyik a Builder tervezési minta ami segítségével új terméket tudunk hozzáadni a raktárhoz. A másik pedig a Dao tervezési minta amivel implementáljuk az adatbázis műveleteket.
 ## 8.) Tesztterv
@@ -131,10 +137,6 @@ Az alkalmazás Java nyelven készül. A különböző ablakok megjelenítését 
 #### Unit teszt:
 - Builder teszt
 - ProductDao teszt
-
-#### Alfa teszt:
-
-#### Beta teszt:
 ## 9.) Architektúrális terv
  - Java
  - Swing
