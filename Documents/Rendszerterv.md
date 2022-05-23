@@ -130,6 +130,8 @@ az adatkezelés biztonságának garantálására hozott technikai és szervezés
 ## 8.) Tesztterv
 
 #### Unit teszt:
+- Builder teszt
+- ProductDao teszt
 
 #### Alfa teszt:
 
